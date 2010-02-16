@@ -9,7 +9,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100216222640) do
+ActiveRecord::Schema.define(:version => 20100216224321) do
+
+  create_table "blog_posts", :force => true do |t|
+    t.string   "title",      :limit => 100, :default => "", :null => false
+    t.text     "content",                   :default => "", :null => false
+    t.integer  "author_id",  :limit => 100, :default => 0,  :null => false
+    t.string   "category",   :limit => 20,  :default => "", :null => false
+    t.string   "status",     :limit => 20,  :default => "", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "blog_posts", ["author_id"], :name => "index_blog_posts_on_author_id"
 
   create_table "comments", :force => true do |t|
     t.integer  "post_id",                    :default => 0,  :null => false
@@ -19,15 +31,6 @@ ActiveRecord::Schema.define(:version => 20100216222640) do
     t.string   "status",       :limit => 25, :default => "", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "posts", :force => true do |t|
-    t.string   "title",      :limit => 100, :default => "",  :null => false
-    t.text     "body",                      :default => "",  :null => false
-    t.string   "author",     :limit => 100, :default => "0", :null => false
-    t.string   "category",   :limit => 20,  :default => "",  :null => false
-    t.string   "status",     :limit => 20,  :default => "",  :null => false
-    t.datetime "created_at"
   end
 
   create_table "users", :force => true do |t|
