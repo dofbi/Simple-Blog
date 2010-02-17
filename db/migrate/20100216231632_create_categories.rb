@@ -19,6 +19,6 @@ class CreateCategories < ActiveRecord::Migration
   def self.down
     drop_table :categories
     drop_table :categories_posts
-    add_column :blog_pots, :category, :string, :limit => 20, :default => "", :null => false
+    add_column :blog_posts, :category, :string, :limit => 20, :default => "", :null => false
   end
 end

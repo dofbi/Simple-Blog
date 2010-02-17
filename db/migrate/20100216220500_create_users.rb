@@ -9,6 +9,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :display_name,    :limit => 25, :default => "", :null => false
       t.integer :user_level,     :limit => 3, :default => 0, :null => false
     end
+    User.create(:usermane=>'genova', :hashed_password=>'genova', :first_name=>'Mamadou', :last_name=>'Diagne', :email=>'genova@dofbi.com', :display_name=>'Genova', :user_level=>9)
   end
 
   def self.down
