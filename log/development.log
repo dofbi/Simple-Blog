@@ -218,3 +218,101 @@ Migrating to AlterPosts (20100216224321)
   [4;35;1mSQL (0.7ms)[0m   [0mPRAGMA index_info('index_blog_posts_on_author_id')[0m
   [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_list("comments")[0m
   [4;35;1mSQL (0.4ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (4.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreatePosts (20100216212703)
+Migrating to CreateUsers (20100216220500)
+Migrating to CreateComments (20100216222640)
+Migrating to AlterPosts (20100216224321)
+Migrating to CreateCategories (20100216231632)
+  [4;36;1mSQL (0.8ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;36;1mSQL (3.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreatePosts (20100216212703)
+Migrating to CreateUsers (20100216220500)
+Migrating to CreateComments (20100216222640)
+Migrating to AlterPosts (20100216224321)
+Migrating to CreateCategories (20100216231632)
+  [4;36;1mSQL (1.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mCREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(50) DEFAULT '' NOT NULL, "short_name" varchar(30) DEFAULT '' NOT NULL, "description" varchar(255) DEFAULT '' NOT NULL) [0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCREATE TABLE "categories_posts" ("category_id" integer NOT NULL, "post_id" integer) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCREATE INDEX "index_categories_posts_on_category_id" ON "categories_posts" ("category_id")[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCREATE INDEX "index_categories_posts_on_post_id" ON "categories_posts" ("post_id")[0m
+  [4;35;1mSQL (4.0ms)[0m   [0mCREATE TEMPORARY TABLE "altered_blog_posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(100) DEFAULT '' NOT NULL, "content" text DEFAULT '' NOT NULL, "author_id" integer(100) DEFAULT 0 NOT NULL, "category" varchar(20) DEFAULT '' NOT NULL, "status" varchar(20) DEFAULT '' NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mPRAGMA index_list("blog_posts")[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mPRAGMA index_info('index_blog_posts_on_author_id')[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mCREATE INDEX "temp_index_altered_blog_posts_on_author_id" ON "altered_blog_posts" ("author_id")[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mDROP TABLE "blog_posts"[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mCREATE TABLE "blog_posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(100) DEFAULT '' NOT NULL, "content" text DEFAULT '' NOT NULL, "author_id" integer(100) DEFAULT 0 NOT NULL, "status" varchar(20) DEFAULT '' NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.8ms)[0m   [0mPRAGMA index_list("altered_blog_posts")[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mPRAGMA index_info('temp_index_altered_blog_posts_on_author_id')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCREATE INDEX "index_blog_posts_on_author_id" ON "blog_posts" ("author_id")[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mDROP TABLE "altered_blog_posts"[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100216231632')[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mPRAGMA index_list("blog_posts")[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mPRAGMA index_info('index_blog_posts_on_author_id')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mPRAGMA index_list("categories")[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mPRAGMA index_list("categories_posts")[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mPRAGMA index_info('index_categories_posts_on_post_id')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mPRAGMA index_info('index_categories_posts_on_category_id')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mPRAGMA index_list("comments")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.9ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreatePosts (20100216212703)
+Migrating to CreateUsers (20100216220500)
+Migrating to CreateComments (20100216222640)
+Migrating to AlterPosts (20100216224321)
+Migrating to CreateCategories (20100216231632)
+Migrating to ChangeCategoriesToRichJoin (20100217002002)
+  [4;36;1mSQL (0.9ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (4.5ms)[0m   [0mCREATE TEMPORARY TABLE "altered_categories_posts" ("category_id" integer NOT NULL, "post_id" integer) [0m
+  [4;36;1mSQL (6.1ms)[0m   [0;1mPRAGMA index_list("categories_posts")[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mPRAGMA index_info('index_categories_posts_on_post_id')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mPRAGMA index_info('index_categories_posts_on_category_id')[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mCREATE INDEX "temp_index_altered_categories_posts_on_post_id" ON "altered_categories_posts" ("post_id")[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mCREATE INDEX "temp_index_altered_categories_posts_on_category_id" ON "altered_categories_posts" ("category_id")[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mDROP TABLE "categories_posts"[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mCREATE TABLE "categories_posts" ("category_id" integer NOT NULL, "post_id" integer, "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL) [0m
+  [4;35;1mSQL (3.2ms)[0m   [0mPRAGMA index_list("altered_categories_posts")[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mPRAGMA index_info('temp_index_altered_categories_posts_on_category_id')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mPRAGMA index_info('temp_index_altered_categories_posts_on_post_id')[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mCREATE INDEX "index_categories_posts_on_category_id" ON "categories_posts" ("category_id")[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mCREATE INDEX "index_categories_posts_on_post_id" ON "categories_posts" ("post_id")[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mDROP TABLE "altered_categories_posts"[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100217002002')[0m
+  [4;36;1mSQL (128.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mPRAGMA index_list("blog_posts")[0m
+  [4;36;1mSQL (5.1ms)[0m   [0;1mPRAGMA index_info('index_blog_posts_on_author_id')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mPRAGMA index_list("categories")[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mPRAGMA index_list("categories_posts")[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mPRAGMA index_info('index_categories_posts_on_post_id')[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mPRAGMA index_info('index_categories_posts_on_category_id')[0m
+  [4;35;1mSQL (41.2ms)[0m   [0mPRAGMA index_list("comments")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mPRAGMA index_list("users")[0m
