@@ -7,3 +7,77 @@
   [4;35;1mComment Load (33.9ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 1) ORDER BY created_at ASC[0m
   [4;36;1mPost Load (7.4ms)[0m   [0;1mSELECT * FROM "blog_posts" WHERE ("blog_posts"."id" = 1) [0m
   [4;35;1mComment Load (24.5ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 1) ORDER BY created_at ASC[0m
+  [4;36;1mSQL (4.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (15.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (6.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (3.6ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreatePosts (20100216212703)
+Migrating to CreateUsers (20100216220500)
+Migrating to CreateComments (20100216222640)
+Migrating to AlterPosts (20100216224321)
+Migrating to CreateCategories (20100216231632)
+Migrating to ChangeCategoriesToRichJoin (20100217002002)
+Migrating to AddCommentCounter (20100219025819)
+  [4;36;1mSQL (73.3ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (2.4ms)[0m   [0mALTER TABLE "blog_posts" ADD "comments_count" integer(4) DEFAULT 0 NOT NULL[0m
+  [4;36;1mPost Load (1.5ms)[0m   [0;1mSELECT * FROM "blog_posts" [0m
+  [4;35;1mComment Load (10.9ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 1) ORDER BY created_at ASC[0m
+  [4;36;1mPost Update (29.5ms)[0m   [0;1mUPDATE "blog_posts" SET "updated_at" = '2010-02-19 03:13:06', "comments_count" = 2 WHERE "id" = 1[0m
+  [4;35;1mSQL (53.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100219025819')[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (9.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mPRAGMA index_list("blog_posts")[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mPRAGMA index_info('index_blog_posts_on_author_id')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mPRAGMA index_list("categories")[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mPRAGMA index_list("categories_posts")[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mPRAGMA index_info('index_categories_posts_on_post_id')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mPRAGMA index_info('index_categories_posts_on_category_id')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mPRAGMA index_list("comments")[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mPRAGMA index_list("sessions")[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mPRAGMA index_info('index_sessions_on_updated_at')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mPRAGMA index_info('index_sessions_on_session_id')[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mPost Load (3.4ms)[0m   [0;1mSELECT * FROM "blog_posts" [0m
+  [4;36;1mPost Load (1.7ms)[0m   [0;1mSELECT * FROM "blog_posts" WHERE ("blog_posts"."id" = 1) [0m
+  [4;35;1mComment Load (33.8ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 1) ORDER BY created_at ASC[0m
+  [4;36;1mComment Create (4.0ms)[0m   [0;1mINSERT INTO "comments" ("status", "updated_at", "post_id", "author", "content", "author_email", "created_at") VALUES('new', '2010-02-19 03:20:29', 1, 'Bob Rich', 'I''m interested in hearing more.', '', '2010-02-19 03:20:29')[0m
+  [4;35;1mPost Load (1.5ms)[0m   [0mSELECT * FROM "blog_posts" WHERE ("blog_posts"."id" = 1) [0m
+  [4;36;1mPost Update (2.1ms)[0m   [0;1mUPDATE "blog_posts" SET "comments_count" = COALESCE("comments_count", 0) + 1 WHERE ("id" = 1) [0m
+  [4;35;1mPost Load (1.7ms)[0m   [0mSELECT * FROM "blog_posts" WHERE ("blog_posts"."id" = 1) [0m
+  [4;36;1mPost Load (150.9ms)[0m   [0;1mSELECT * FROM "blog_posts" WHERE ("blog_posts"."id" = 1) [0m
+  [4;35;1mCategorie Create (19.0ms)[0m   [0mINSERT INTO "categories" ("name", "description", "short_name") VALUES('General', 'Posts about general topics', 'general')[0m
+  [4;36;1mCategorie Load (0.7ms)[0m   [0;1mSELECT * FROM "categories" [0m
+  [4;35;1mCategorie Create (45.8ms)[0m   [0mINSERT INTO "categories" ("name", "description", "short_name") VALUES('General', 'Posts about general topics', 'general')[0m
+  [4;36;1mCategorie Load (30.1ms)[0m   [0;1mSELECT * FROM "categories" [0m
+  [4;35;1mPost Load (1.7ms)[0m   [0mSELECT * FROM "blog_posts" WHERE ("blog_posts"."id" = 1) [0m
+  [4;36;1mCategorie Load (2.6ms)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 1) [0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSQLite3::SQLException: no such column: categories_posts.categorie_id: SELECT "blog_posts".* FROM "blog_posts" INNER JOIN "categories_posts" ON "blog_posts".id = "categories_posts".post_id WHERE (("categories_posts".categorie_id = 1)) [0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such column: categories_posts.categorie_id: SELECT "blog_posts".* FROM "blog_posts" INNER JOIN "categories_posts" ON "blog_posts".id = "categories_posts".post_id WHERE (("categories_posts".categorie_id = 1)) [0m
+  [4;36;1mPost Load (26.4ms)[0m   [0;1mSELECT * FROM "blog_posts" WHERE ("blog_posts"."id" = 1) [0m
+  [4;35;1mCategorie Load (1.6ms)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 1) [0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such column: categories_posts.categorie_id: SELECT "blog_posts".* FROM "blog_posts" INNER JOIN "categories_posts" ON "blog_posts".id = "categories_posts".post_id WHERE (("categories_posts".categorie_id = 1)) [0m
+  [4;36;1mPost Load (1.9ms)[0m   [0;1mSELECT * FROM "blog_posts" WHERE ("blog_posts"."id" = 1) [0m
+  [4;35;1mCategorie Load (2.2ms)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 1) [0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such column: categories_posts.categorie_id: SELECT "blog_posts".* FROM "blog_posts" INNER JOIN "categories_posts" ON "blog_posts".id = "categories_posts".post_id WHERE (("categories_posts".categorie_id = 1)) [0m
+  [4;36;1mPost Load (2.3ms)[0m   [0;1mSELECT * FROM "blog_posts" WHERE ("blog_posts"."id" = 1) [0m
+  [4;35;1mCategorie Load (2.1ms)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 1) [0m
+  [4;36;1mCategorization Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such column: categories_posts.categorie_id: SELECT * FROM "categories_posts" WHERE ("categories_posts".categorie_id = 1) [0m
+  [4;35;1mCategorization Load (0.0ms)[0m   [0mSQLite3::SQLException: no such column: categories_posts.categorie_id: SELECT * FROM "categories_posts" WHERE ("categories_posts".categorie_id = 1) [0m
