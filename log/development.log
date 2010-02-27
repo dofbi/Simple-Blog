@@ -769,3 +769,55 @@ Processing StaffController#menu (for 127.0.0.1 at 2010-02-27 07:43:49) [GET]
 Rendering template within layouts/staff
 Rendering staff/menu
 Completed in 11ms (View: 9, DB: 0) | 200 OK [http://localhost/staff/menu]
+
+
+Processing StaffController#menu (for 127.0.0.1 at 2010-02-27 07:54:07) [GET]
+Rendering template within layouts/staff
+Rendering staff/menu
+Completed in 91ms (View: 88, DB: 0) | 200 OK [http://localhost/staff/menu]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-02-27 07:54:14) [GET]
+
+ActionController::RoutingError (No route matches "/staff/www.dofbi.com" with {:method=>:get}):
+  c:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-02-27 07:54:59) [GET]
+
+ActionController::RoutingError (No route matches "/staff/www.dofbi.com" with {:method=>:get}):
+  c:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing StaffController#menu (for 127.0.0.1 at 2010-02-27 07:55:00) [GET]
+Rendering template within layouts/staff
+Rendering staff/menu
+Completed in 21ms (View: 19, DB: 0) | 200 OK [http://localhost/staff/menu]
+
+
+Processing StaffController#menu (for 127.0.0.1 at 2010-02-27 07:55:02) [GET]
+Rendering template within layouts/staff
+Rendering staff/menu
+Completed in 11ms (View: 8, DB: 0) | 200 OK [http://localhost/staff/menu]
