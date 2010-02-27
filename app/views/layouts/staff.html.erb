@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  	<meta name="author" content="Mamadou Diagne" />
+  	<meta name="copyright" content="Copyright 2010, www.dofbi.com" />
+  	<meta name="version" content="1.0" />
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  	<title>Simple Blog: <%= @page_title ||= 'Partie Administrateur' %></title>
+  	<%= stylesheet_link_tag('sblog', 'scaff', :media => "all") %>
+</head>
+<body class="staff">
+	<div id="header">
+		<h1>Simple Blog: Partie Administrateur</h1>
+	</div>
+	<div id="pagecontent">
+		<h1><%= @page_title %></h1>
+		<%= "<div class=\"notice\">#{flash[:notice]}</div>" if flash[:notice] %>
+		<%= yield %>
+	</div>
+	<div id="footer">
+		<p>Copyright 2010, <a href="www.dofbi.com">www.dofbi.com</a></p>
+	</div>
+</body>
+</html>
